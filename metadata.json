@@ -1,0 +1,6 @@
+{
+  "name": "KU FIT+ : 고려대학교 대학생 OOTD 스타일 연구소",
+  "description": "고려대학교 학생들이 날씨, 기분, 일정, 보유한 학교 굿즈를 바탕으로 맞춤형 캠퍼스 OOTD 스타일을 제안받고 다양한 캠퍼스 지표를 분석받는 스타일 연구소 서비스",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
