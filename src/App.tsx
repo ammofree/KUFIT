@@ -36,6 +36,7 @@ import {
 import LucideIcon from "./components/LucideIcon";
 import { WEATHER_OPTIONS, MOOD_OPTIONS, SCHEDULE_OPTIONS, GOODS_OPTIONS, PRESET_PROMPTS } from "./data/constants";
 import { WeatherType, MoodType, ScheduleType, GoodsItem, StylingResult } from "./types";
+import { generateLocalStyling } from "./utils/localStyling";
 
 export default function App() {
   // Inputs state
@@ -103,7 +104,15 @@ export default function App() {
       const data = await response.json();
       setResult(data);
     } catch (error) {
-      console.error("스타일 생성 오류:", error);
+      console.warn("API Server not available. Running browser local styling fallback options gracefully.", error);
+      const data = generateLocalStyling({
+        weather,
+        temp,
+        mood,
+        schedule,
+        goods: selectedGoods,
+      });
+      setResult(data);
     } finally {
       clearInterval(intervalId);
       // Brief aesthetic pause for visual delight
